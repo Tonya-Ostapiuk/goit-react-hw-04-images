@@ -53,7 +53,7 @@ export function App() {
     }
 
     fetchData();
-  }, [query, page, error, totalHits]);
+  }, [query, page, error]);
 
 
   const showImage = value => {
