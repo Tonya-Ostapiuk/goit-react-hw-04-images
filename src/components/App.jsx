@@ -30,6 +30,7 @@ export function App() {
       setIsLoading(true);
 
       try {
+  
         const response = await fetchImages(query, page);
 
         setImages(prevImages => [...prevImages, ...response.hits]);
@@ -52,7 +53,7 @@ export function App() {
     }
 
     fetchData();
-  }, [query, page]);
+  }, [query, page, error, totalHits]);
 
 
   const showImage = value => {
