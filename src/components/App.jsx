@@ -12,7 +12,6 @@ import { AppStyled } from './App.Styled';
 
 export function App() {
   const [images, setImages] = useState([]);
-  const [totalHits, setTotalHits] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [query, setQuery] = useState('');
@@ -34,8 +33,7 @@ export function App() {
         const response = await fetchImages(query, page);
 
         setImages(prevImages => [...prevImages, ...response.hits]);
-        setTotalHits(response.totalHits);
-
+     
         if (page === 1 && response.totalHits !== 0) {
           toast.success(`Hooray! We found ${response.totalHits} images.`);
         }
@@ -92,7 +90,7 @@ export function App() {
 
       <ToastContainer
         position="top-right"
-        autoClose={2000}
+        autoClose={1000}
         closeOnClick
         theme="light"
       />
